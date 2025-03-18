@@ -1,9 +1,9 @@
-package br.com.codaedorme.pi.domain.produto;
+package br.com.codaedorme.backapi.domain.produto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.codaedorme.pi.domain.produto.enums.Status;
+import br.com.codaedorme.backapi.domain.produto.enums.Status;
 import jakarta.transaction.Transactional;
 
 @Service

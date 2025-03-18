@@ -1,4 +1,4 @@
-package br.com.codaedorme.pi.domain.produto;
+package br.com.codaedorme.backapi.domain.produto;
 
 import jakarta.persistence.*;
 

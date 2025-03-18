@@ -1,13 +1,14 @@
-package br.com.codaedorme.pi.domain.usuario;
+package br.com.codaedorme.backapi.domain.usuario;
+
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.codaedorme.pi.domain.usuario.enums.Status;
-import br.com.codaedorme.pi.infra.criptografia.CriptografaSenha;
-import br.com.codaedorme.pi.infra.validation.ValidaSenha;
-
-import java.util.Optional;
+import br.com.codaedorme.backapi.domain.usuario.enums.Status;
+import br.com.codaedorme.backapi.infra.criptografia.CriptografaSenha;
+import br.com.codaedorme.backapi.infra.validation.ValidaSenha;
 
 @Service
 public class UsuarioService {
@@ -40,8 +41,8 @@ public class UsuarioService {
 		return repository.findById(id).orElse(null);
 	}
 
-	public Usuario[] findAll() {
-		return repository.findAll().toArray(new Usuario[0]);
+	public List<Usuario> findAll() {
+		return repository.findAll();
 	}
 
 	public Usuario alter(Usuario usuario) {

@@ -1,4 +1,4 @@
-package br.com.codaedorme.pi.domain.usuario;
+package br.com.codaedorme.backapi.domain.usuario;
 
 import org.springframework.stereotype.Component;
 
