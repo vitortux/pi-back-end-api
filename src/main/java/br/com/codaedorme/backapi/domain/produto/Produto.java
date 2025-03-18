@@ -1,10 +1,10 @@
-package br.com.codaedorme.pi.domain.produto;
+package br.com.codaedorme.backapi.domain.produto;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.codaedorme.pi.domain.produto.enums.Status;
+import br.com.codaedorme.backapi.domain.produto.enums.Status;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
