@@ -1,6 +1,15 @@
 package br.com.codaedorme.backapi.domain.produto;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Imagem")
@@ -16,12 +25,13 @@ public class Imagem {
     @Column(length = 255, nullable = false)
     private String diretorioDestino;
 
-    @ManyToOne
-    @JoinColumn(name = "produtoId", nullable = false)
-    private Produto produto;
-
     @Column(nullable = false)
     private Boolean imagemPrincipal;
+
+    @ManyToOne
+    @JoinColumn(name = "produto_id")
+    @JsonBackReference
+    private Produto produto;
 
     public Long getId() {
         return id;
@@ -45,14 +55,6 @@ public class Imagem {
 
     public void setDiretorioDestino(String diretorioDestino) {
         this.diretorioDestino = diretorioDestino;
-    }
-
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
     }
 
     public Boolean getImagemPrincipal() {

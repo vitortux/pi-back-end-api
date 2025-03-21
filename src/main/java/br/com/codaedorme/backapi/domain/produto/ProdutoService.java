@@ -1,10 +1,12 @@
 package br.com.codaedorme.backapi.domain.produto;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.codaedorme.backapi.domain.produto.enums.Status;
-import jakarta.transaction.Transactional;
 
 @Service
 public class ProdutoService {
@@ -20,8 +22,9 @@ public class ProdutoService {
         return repository.findById(id).orElse(null);
     }
 
-    public Produto[] findAll() {
-        return repository.findAll().toArray(new Produto[0]);
+    @Transactional
+    public Page<Produto> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     public void alterarStatus(Produto produto) {
